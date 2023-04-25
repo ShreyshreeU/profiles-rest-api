@@ -21,13 +21,15 @@ class HelloApiView(APIView):
 
         return Response({'message': 'Hello', 'an_apiview': an_apiview})
 
-    def posst(self, request):
+    def post(self, request):
         """Create a hello message with our names"""
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
             name = serializer.validated_data.get('name')
             message = f'Hello {name}'
+            return Response ({'message': message})
+        else:
             return Response(
                 serializer.errors,
                 status=status.HTTP_400_BAD_REQUEST 
