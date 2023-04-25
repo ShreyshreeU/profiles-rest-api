@@ -10,7 +10,7 @@ class HelloApiView(APIView):
     serializer_class = serializers.HelloSerializer
 
     def get(self, request, format=None):
-        """Returns alist of APIViews features"""
+        """Returns a list of APIViews features"""
 
         an_apiview = [
             'uses HTTP methods as function (get, post, patch, put, delete)',
